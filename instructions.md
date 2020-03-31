@@ -82,7 +82,7 @@ Write a function that takes an address or place name as input and returns a prop
 
 Now that we can find the coordinates of a given place, let's take things one step further and find the closest public transportation stop to that location. 
 
-#### just a glimpse of history: MBTA stations in 50s
+#### Just a glimpse of history: MBTA stations in 50s
 ![Image of old T map with illustrations of each station](https://www.vanshnookenraggen.com/_index/wp-content/uploads/2017/08/MTA_System.jpg)
 
 To accomplish this, we will use the [*MBTA-realtime API*](https://api-v3.mbta.com/docs/swagger/index.html). Check out the details for `GET /stops` in the documentation.
