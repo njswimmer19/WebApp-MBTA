@@ -10,20 +10,21 @@ You may have used multiple Python packages to access information on the Internet
 - Structured data (JSON) processing
 - Web App Development
 
-~~### Teaming Logistics:~~
+### Teaming Logistics:
 
-- ~~You must work in a team.~~
-- ~~Your partners should be in the same term-project team with you.~~
-- ~~Only one of you should fork the base repo for this project. The one that forks the repo should then add the other team members as collaborators on Github for that repo.~~
+- You must work in a team.
+- Your partners should be in the same term-project team with you.
+- Only one of you should fork the base repository for this project. The one that forks the repository should then add the other team members as collaborators on Github for that repo.
 
-
+---
 ## Part 1: Geocoding and Web APIs
 
 The goal for Part 1 to deal with geographical data. You will write a tool that takes an address or place name and returns the closest MBTA stop and the distance from the given place to that stop. For example: 
-    
-    >>>import mbta_helper
-    >>>print(mbta_helper.find_stop_near("Boston Common"))
-    Beacon St opp Walnut St
+```    
+>>>import mbta_helper
+>>>print(mbta_helper.find_stop_near("Boston Common"))
+Beacon St opp Walnut St
+```
 
 Note: There are already [a few Python packages](https://wiki.python.org/moin/GIS/Web_services) that interface with mapping services, but part of this project is seeing how you might write your own such package from scratch.
 
@@ -46,26 +47,26 @@ There are three main steps to using any web API:
     The first API we will use is the [*MapQuest*](https://developer.mapquest.com/documentation/geocoding-api/address/get/). This tool (among other things) allows you to specify a place name or address and receive its latitude and longitude. Take a few minutes to read the documentation (it's quite good). You need to sign up and get a free API Key from [here](https://developer.mapquest.com/). 
 
 ### Structured data responses (JSON)
-Back? Ok cool, let's try it out in Python. We're going to request the response in JSON format, which we can decode using Python's [`json` module](https://docs.python.org/3.7/library/json.html).
+Back? Ok cool, let's try it out in Python. We're going to request the response in JSON format, which we can decode using Python's [`json` module](https://docs.python.org/3.8/library/json.html).
+```python
+import urllib.request
+import json
+from pprint import pprint
 
-    import urllib.request
-    import json
-    from pprint import pprint
-    
-    MAPQUEST_API_KEY = 'YOUR API KEY'
+MAPQUEST_API_KEY = 'YOUR API KEY'
 
-    url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Babson%20College'
-    f = urllib.request.urlopen(url)
-    response_text = f.read().decode('utf-8')
-    response_data = json.loads(response_text)
-    pprint(response_data)
-
+url = f'http://www.mapquestapi.com/geocoding/v1/address?key={MAPQUEST_API_KEY}&location=Babson%20College'
+f = urllib.request.urlopen(url)
+response_text = f.read().decode('utf-8')
+response_data = json.loads(response_text)
+pprint(response_data)
+```
 
 We used the [`pprint` module](https://docs.python.org/3/library/pprint.html) to "pretty print" the response data structure with indentation so it's easier to visualize. You should see something similar to the JSON response from the documentation, except built from Python data types. This response data structure is built from nested dictionaries and lists, and you can step through it to access the fields you want.
-
-    >>> print(response_data["results"][0]["locations"][0]['postalCode'])
-    02481
-
+```
+>>> print(response_data["results"][0]["locations"][0]['postalCode'])
+02481
+```
 
 #### What you need to do
 Write a function (maybe two) to extract the latitude and longitude from the JSON response.
@@ -104,6 +105,7 @@ Note: Sadly there are no MBTA stops close enough to Babson College - you have to
 - Add in the MBTA realtime arrival data to help choose what station you should walk to
 - Connect with other local services. Example: the City of Boston has [an app](https://www.boston.gov/departments/new-urban-mechanics/street-bump)  that uses a phone's GPS and accelerometer to automatically report potholes to be fixed. You can also see many other apps developed for Boston residents [here](https://www.boston.gov/departments/innovation-and-technology/apps).
 
+---
 ## Part 2: Web App
 The goal for Part 2 is to build a simple website that uses the module `mbta_helper` you created in Part 1. 
 
@@ -111,9 +113,9 @@ The goal for Part 2 is to build a simple website that uses the module `mbta_help
 
 ### Get Started
 You need to first install `Flask`. Run the following command:
-
-    pip install Flask
-
+```
+pip install Flask
+```
 ### Why Flask?
 
 In the introduction, we defined `Flask` as a 'web framework', but what does that actually mean? Let's dig deeper. Before this, let's develop a better understanding of how the internet works.
@@ -173,35 +175,34 @@ To complete this project, the official Flask documentation will get you pretty f
 - **But HTML is so ugly!** HTML alone is very ugly. That's why we use CSS (Cascading Style Sheets) to add some extra flair and style to our HTML. You can change pretty much anything about HTML - colors, shapes, sizes, placement, etc. with CSS rules. It's also pretty simple to write. Check [this resource](https://www.w3schools.com/css/css_intro.asp) out to learn more about CSS.
 - **What about making my website dynamic?** Our class may be a class in Python, but we can venture out a little and use some jQuery. jQuery might seem scary, but you use it in a way similar to adding/linking CSS styling to your HTML. You write scripts in JavaScript (which isn't too difficult), which can allow you to add beautiful responsive and dynamic content to your web app.
 
+---
 ## Project Wrap-up
 ### Getting Started
 
-To start this project, you should fork the base repo for this project in class Github, and clone the forked repo in your Github. ~~Remember, that you will want to have only one of your teammates fork the repo, and then the other members should be added as collaborators on Github for that repo.~~
+To start this project, you should fork the base repository for this project in class Github, and clone the forked repository in your Github. Remember, that you will want to have only one of your teammates fork the repo, and then the other members should be added as collaborators on Github for that repo.
 
 
 ### Project Writeup and Reflection
-Please prepare a short document (~1 page not including figures) with the following sections:
+Please write a short document in [Markdown format](https://guides.github.com/features/mastering-markdown/) (1 per team, not 1 per person) with the following sections:
 
 **Project Overview** [~1 paragraph]
 Write a short abstract describing your project. Include all the extensions to the basic requirements.
 
 **Project Reflection** [~2 paragraphs]
-After you finish the Please prepare a short document for reflection [~2 paragraphs]
+After you finish the project, Please write a short document for reflection [~2 paragraphs]
 
 From a process point of view, what went well? What could you improve? Other possible reflection topics: Was your project appropriately scoped? Did you have a good plan for unit testing? What self-studying did you do? How will you use what you learned going forward? What do you wish you knew before you started that would have helped you succeed?
 
-~~Also discuss your team process in your reflection. How did you plan to divide the work (e.g. split by class, always pair program together, etc.) and how did it actually happen? Were there any issues that arose while working together, and how did you address them? What would you do differently next time?~~
+Also discuss your team process in your reflection. How did you plan to divide the work (e.g. split by class, always pair program together, etc.) and how did it actually happen? Were there any issues that arose while working together, and how did you address them? What would you do differently next time?
 
 ### Turning in your assignment
 
-1. Push your completed code to the "master" Git repository (depending on which team member's repository is being used to work on the project).
+1. Push your completed code to the to forked GitHub repository (depending on which team member's repository is being used to work on the project).
 
-2. Submit your Project Writeup/Reflection ~~(1 per team, not 1 per person)~~. This can be in the form of either:
-    + a PDF document pushed to GitHub, or
-    + a project web page (if you choose this route, make sure there is a link to your web page in your README.md file in your Github repo)
+2. Include your Project Writeup/Reflection in your GitHub repository. Make sure there is a link to this Markdown document in your README.md file in your Github repo. 
 
-3. Create a pull request to the upstream repository
+3. Create a pull request to the upstream repository.
 
-4. Zip all the files into a zip file, named *project_webapp_YourFullName.zip*. Upload it to Canvas. ~~In the comment area on Canvas, specify names of all team members and url of GitHub repository. **Everyone in the team needs to submit the zip file to Blackboard and add comment.**~~
+4. Zip all the files into a zip file, named *project_webapp_YourFullName.zip*. Upload it to Canvas. In the comment area on Canvas, specify names of all team members and url of GitHub repository. **Everyone in the team needs to submit the zip file to Canvas and add comment.**
 
 
