@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTA Location Finder</title>
+    <style>
+        .nav {
+            overflow: hidden;
+            background-color: #fefefe;
+            align-self: center;
+        }
+
+        .nav a {
+            float: center;
+            display: block;
+            color: #100100;
+            text-align: center;
+            padding: 10px, 10px;
+        }
+
+        h1 {
+            color: #100100;
+            text-align: center;
+        }
+
+        p {
+        text-align: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="{{url_for('index')}}">HOME</a>
+        <a href="{{url_for('nearest')}}">START</a>
+    </div>
+    <h1>Find the Nearest MBTA station to your location</h2>
+    <form method = "POST" name = "nearest">
+        {%if error%}
+        <p style = "color: red"> Sorry, this location does not have a nearby MBTA station. Please try again.</p>
+        {%endif%}
+
+        <p>
+            Please enter your location below:
+        </p>
+        <p>
+            <input type = "text" name = "location" placeholder="Location here" />
+        </p>
+        <p>
+            <input type ="submit" value="Find A Stop"/>
+        </p>
+    </form>
+</body>
+
+</html>
