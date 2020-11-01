@@ -37,17 +37,17 @@
         <a href="{{url_for('index')}}">HOME</a>
         <a href="{{url_for('nearest')}}">START</a>
     </div>
-    <h1>Find the Nearest MBTA station to your location</h2>
+    <h1>Locate the Nearest MBTA station to your location!</h2>
     <form method = "POST" name = "nearest">
         {%if error%}
-        <p style = "color: red"> Sorry, this location does not have a nearby MBTA station. Please try again.</p>
+        <p style = "color: red"> Sorry, this location does not have a MBTA station nearby. Please try again.</p>
         {%endif%}
 
         <p>
-            Please enter your location below:
+            Please Enter Your Location Below:
         </p>
         <p>
-            <input type = "text" name = "location" placeholder="Location here" />
+            <input type = "text" name = "location" placeholder="Enter Location" />
         </p>
         <p>
             <input type ="submit" value="Find A Stop"/>
