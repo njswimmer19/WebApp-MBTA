@@ -55,11 +55,12 @@ def get_nearest_station(latitude, longitude):
     formatting requirements for the 'GET /stops' API.
     """
     url = f'{MBTA_BASE_URL}?api_key={MBTA_API_KEY}&filter[latitude]={latitude}&filter[longitude]={longitude}&sort=distance'
-    closest_station_json = get_json(url)
+    nearest_station_json = get_json(url)
 
-    wheelchair_boarding_station = closest_station_json['data'][0]['attribute']['name'],closest_station_json['data'][0]['attribute']['wheelchair_boarding']
+    station_name = nearest_station_json ['data'][0]['attributes']['name']
+    wheelchair_accessible = nearest_station_json ['data'][0]['attributes']['wheelchair_boarding']
 
-    return wheelchair_boarding_station
+    return station_name, wheelchair_accessible
 
 
 def find_stop_near(place_name):
@@ -77,7 +78,7 @@ def main():
     """
     You can test all the functions here
     """
-    place_name = "Babson College"
+    place_name = "Cambridge"
     print(get_lat_long(place_name))
 
     lat = str(get_lat_long(place_name)[0])
@@ -85,6 +86,7 @@ def main():
 
     print(get_nearest_station(lat, lng))
 
+    print(find_stop_near('Northeastern University'))
 
 if __name__ == '__main__':
     main()
