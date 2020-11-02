@@ -58,11 +58,11 @@
     <h1>The Nearest MBTA Result</h1>
     <p>Location = {{place_name}}.</p>
     <p>Nearest MBTA Station =  {{station}}</p>
-    <p>Wheelchair Accessibility = {{wheelchair_accessable}}</p>
-    <p>Wheelchair key: <br>
-        If wheelchair = 0, there is no available information. <br>
-        If wheelchair = 1, the wheelelchair is accessible.  <br>
-        If wheelchair = 2, the wheelelchair is inaccessible.
+    <p>Wheelchair Accessibility = {{wheelchair_accessible}}</p>
+    <p> KEY: <br>
+        If wheelchair = 0, no available information. <br>
+        If wheelchair = 1, wheelelchair is accessible.  <br>
+        If wheelchair = 2, wheelelchair is not accessible.
     </p>
     <a href = "{{url_for('nearest')}}" class="button">Click here to try again!</a>
 </body>
