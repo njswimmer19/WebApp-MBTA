@@ -30,3 +30,6 @@ def nearest():
             return render_template("form.html", error = True)
 
     return render_template("form.html", error = None)
+
+if __name__ == '__main__':
+    app.run()
