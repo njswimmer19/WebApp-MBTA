@@ -1,0 +1,11 @@
+# Project Summary
+
+## Project Overview
+
+In building a python package that enables the users to request access to an existing url based API online, we have created a website that searches for the nearest MBTA station based on the location values inputted. In other words, this app utilizes two APIs, sourcing a specific longitude and latitude from MapQuest and using MBTA-realtime to input those coordinates that searches the closest station simultaneously. As prerequisites, the user should have urllib3, pprint, and json installed before using the developed app and hardware that has html capabilities, which would host the webapp.  
+
+## Project Reflection
+
+By completing this project, our team has mainly learned how to code together asynchronously, voice logical opinions, teach ourselves required skillsets, and source ideas that are potential in solving problems when encountered. Although our team operates within the same timezone, our daily schedules had countless conflicts that needed effective communication. This effective communication was able to take place thanks to a neatly organized project timeline that one of our teammates had drafted, which blocked tasks and the timing of completion as well as online calls. Every time we called or had to program, at least two were working together in order to monitor errors and propose different approaches in figuring out mechanics of a function. After reading the project instructions, two of us wrote a pseudo code to sketch a generic idea of what we are trying to do each step in the project. The greatest challenge we faced were having hard times realizing that the MapQuest data we have mined had several layers of dictionaries and that we needed to create a tuple to store the data, not another dictionary. 
+
+One of the biggest challenges we had were learning html skills and the logistics when it came to linking the backend python mbta_helper.py package with the frontend website. However, we overcame the obstacle by assigning specific tasks to individual team members that felt more confident in understanding the material required. Mostly, we pair programmed to make sure the possible design errors are detected. Ultimately, there weren't glaring problems that we faced, but through this experience we have learned how to function better as a team.

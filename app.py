@@ -14,17 +14,17 @@ def index():
 def nearest():
 
     if request.method == "POST":
-        place_name = str(request.form['location'])
+        place_name = str(request.form['place'])
         mbta_station = find_stop_near(place_name)
         station = mbta_station[0]
-        wheelchair_accessable = mbta_station[1]
+        wheelchair_accessible = mbta_station[1]
 
         if mbta_station:
             return render_template(
-                "return.html",
+                "result.html",
                 place_name = place_name,
                 station = station,
-                wheelchair_accessable = wheelchair_accessable
+                wheelchair_accessible = wheelchair_accessible
             )
         else:
             return render_template("form.html", error = True)
